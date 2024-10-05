@@ -1,0 +1,106 @@
+
+.dot {
+    --glow-color: purple;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px 8px var(--glow-color);
+}
+
+.star {
+    --star-color: yellow; /* Default color using CSS variable */
+    
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-bottom: 3.5px solid var(--star-color); /* Use CSS variable for color */
+    border-left: 5px solid transparent;
+    transform: rotate(35deg);
+    border-radius: 1px;
+    pointer-events: none; /* Prevent interference with cursor */
+    animation-fill-mode: forwards;
+}
+
+.star:before {
+    content: '';
+    border-bottom: 4px solid var(--star-color); /* Use CSS variable for color */
+    border-left: 1.5px solid transparent;
+    border-right: 1.5px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -2.5px;
+    left: -3.2px;
+    display: block;
+    transform: rotate(-35deg);
+    border-radius: 1px;
+}
+
+.star:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0.2px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-bottom: 3.5px solid var(--star-color); /* Use CSS variable for color */
+    border-left: 5px solid transparent;
+    transform: rotate(-70deg);
+    border-radius: 1px;
+}
+
+@keyframes fall1 {
+    0% {
+      transform: translate(0px, 0px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(0.25);
+      opacity: 0;
+    }
+    
+    5% {
+      transform: translate(10px, -10px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(25px, 200px) rotateX(180deg) rotateY(270deg) rotateZ(90deg) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall2 {
+    0% {
+      transform: translate(0px, 0px) rotateX(-20deg) rotateY(10deg) scale(0.25);
+      opacity: 0;
+    }
+    
+    10% {
+      transform: translate(-10px, -5px) rotateX(-20deg) rotateY(10deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(-10px, 160px) rotateX(-90deg) rotateY(45deg) scale(0.25);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall3 {
+    0% {
+      transform: translate(0px, 0px) rotateX(0deg) rotateY(45deg) scale(0.5);
+      opacity: 0;
+    }
+    
+    15% {
+      transform: translate(7px, 5px) rotateX(0deg) rotateY(45deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(20px, 120px) rotateX(-180deg) rotateY(-90deg) scale(0.5);
+      opacity: 0;
+    }
+  }
