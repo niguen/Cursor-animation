@@ -20,8 +20,7 @@ function calcDistance(last, current) {
 
 
 
-window.onmousemove = e => {
-
+function handleMove(e) {
     const current = [e.pageX, e.pageY]
     
     if (calcDistance(last, current) >= 50){
@@ -69,3 +68,9 @@ window.onmousemove = e => {
 
 }
 
+window.onmousemove = handleMove;
+window.ontouchmove = e => {
+    if (e.touches.length > 0) {
+        handleMove(e.touches[0]);
+    }
+};
